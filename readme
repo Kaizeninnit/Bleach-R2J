@@ -1,0 +1,22 @@
+THIS IS NOT INTERPOLATED.
+
+IVTC vs deinterlacing:
+-IVTC (24p): Reverses the 3:2 pulldown used to put film on NTSC video. Reconstructs the original frame by matching fields.
+-deinterlacing (60p): Treats every field as a unique moment in time and requires no reconstruction.
+
+R2J Bleach DVDs are mixed-scan types designed for CRT playback, where the display natively draws interlaced fields sequentially.
+In this environment, "broken" cadence is invisible because the tube simply displays whatever field comes next.
+
+Orphan Fields:
+Are solitary fields of animation that have lost their matching partner.
+They came to exist because editing occurred at the field level rather than the frame level, where it cut directly into the pulldown cycle.
+IVTC's flaw is that it cannot reconstruct this field because it has nothing to match to reconstruct the original frame, it "discards" the field in so, discarding an entire frame in the process.
+
+Cadence Deviation:
+This script attempts to measure the cadence of the deinterlaced video, as 24p content inside a 60p container should have a repeating, measurable pattern. Deviations from this cadence indicate an orphan field or 60fps content.
+
+Bleach has 60fps content in:
+Openings, endings, flashback grain, scene transitions and fades, this script does a good job of automatically "recovering" deint for EDs as the credits are 60i as well as flashback scenes but OPs and scene transitions require manual trimming to maintain their authentic cadence.
+
+I haven't found a way to recover these frames into a 24p stream, as such two encodes will exist, a 60p DVD encode and 24p ITBD/ITDL encode, as the ITA sources are essentially JPDVD 1080i masters.
+The ITBD is blended 24p (judging by 228's scene transitions) and ITDL is 30p, wherein the film content is properly decimated on ITBD but not in ITDL (both missing orphan fields). The ITDL does preserve some 60fps elements at half-rate which is cool but not cool enough to be definitive.
