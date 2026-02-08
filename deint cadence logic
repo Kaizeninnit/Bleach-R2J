@@ -36,7 +36,7 @@ ivtc.ScriptClip("""
     
     res = is_stray ? deint_repaired : last
     
-    src_text = is_stray ? "SOURCE: DEINT (REPAIRED)" : "SOURCE: IVTC"
+    src_text = is_stray ? "SOURCE: DEINT" : "SOURCE: IVTC"
     status_c = is_stray ? $FF0000 : $00FF00
     
     res = res.Subtitle(src_text, align=7, text_color=status_c, size=24)
